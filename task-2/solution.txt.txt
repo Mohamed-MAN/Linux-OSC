@@ -1,0 +1,22 @@
+git config --global user.name Mohamed
+git config --global user.email mohamedstudent.12@gmail.com
+cd /home/mn
+git clone https://github.com/Mohamed-MAN/Linux-OSC
+cd Linux-OSC
+mkdir task-2
+cd task-2
+touch greeting.txt
+echo "Hello World" >> greeting.txt
+git add greeting.txt
+git commit -m "Added greeting"
+git checkout -b intro
+echo "I love Git" >> greeting.txt
+git add greeting.txt
+git commit -m "Added I Love Git"
+git checkout main
+git merge intro
+git tag v1
+git push origin min --tags
+git remote add Linux-OSC https://github.com/Mohamed-MAN/Linux-OSC
+cd Linux-OSC
+git push -u origin master
