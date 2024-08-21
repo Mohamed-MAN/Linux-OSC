@@ -1,0 +1,26 @@
+mkdir -p ~/project_files/reports ~/project_files/logs ~/project_files/data
+touch ~/project_files/reports/report1.md ~/project_files/reports/report2.md
+touch ~/project_files/logs/system.log ~/project_files/logs/error.log ~/project_files/logs/file1.pdf ~/project_files/logs/file2.pdf
+touch ~/project_files/data/data.csv ~/project_files/data/info.txt
+nano ~/project_files/reports/report1.md
+nano ~/project_files/logs/system.log
+nano ~/project_files/data/data.csv
+tar -cvf ~/project_files/logs_backup.tar -C ~/project_files logs
+mv ~/project_files/logs_backup.tar ~/project_files/
+tar -xvf ~/project_files/logs_backup.tar -C ~/project_files/
+find ~ -type f -name "*.md"
+find ~/project_files -type f -name "*.log"
+find ~/project_files -type f -name "file1.pdf"
+find ~/project_files -type f -iname "*.pdf"
+find ~/project_files/logs -type f
+ln -s ~/project_files/data/data.csv ~/project_files/link_data.csv
+nano ~/project_files/link_data.csv
+cat ~/project_files/data/data.csv
+rm ~/project_files/link_data.csv
+echo "Summary Start" > ~/project_files/summary.txt
+date >> ~/project_files/summary.txt
+wc -l ~/project_files/summary.txt | tee -a ~/project_files/summary.txt
+wc -w ~/project_files/reports/report1.md
+wc -m ~/project_files/logs/system.log >> ~/project_files/summary.txt
+find ~/project_files -type f -o -type d | wc -l >> ~/project_files/summary.txt
+cat ~/project_files/summary.txt
