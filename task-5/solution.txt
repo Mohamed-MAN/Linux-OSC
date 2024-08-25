@@ -1,0 +1,2 @@
+cut -d "," -f 2 info.csv | sort | uniq > emails.txt
+ps | sort -k 4 | grep "pts" | cut -b 3-6,25- > processes.txt
